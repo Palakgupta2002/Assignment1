@@ -15,6 +15,7 @@ async function fetchdata(){
         console.log("error occurs");
     }
 }
+let cartarray=JSON.parse(localStorage.getItem("cart"))||[];
 fetchdata();
 function productpage(data){
     data.map((element)=>{
@@ -28,6 +29,7 @@ function productpage(data){
         addcart.style.marginTop="10px";
         addcart.style.backgroundColor="rgb(4, 50, 52)";
         addcart.style.color="white";
+        // addcart.style.cursor="pointer";
         image.style.width="200px";
         const color=document.createElement("p");
         const gender=document.createElement("p");
@@ -46,15 +48,18 @@ function productpage(data){
         cart.setAttribute("id","cart");
         const mineproduct= document.getElementById("productcart");
         cart.append(image,desc);
+        addcart.addEventListener("click",()=>{
+            alert("Product Added Successfully ");
+            cartarray.push(element);
+            localStorage.setItem("cart",JSON.stringify(cartarray));
+            console.log(cartarray);
+        })
+
         cart.style.border="2px solid rgb(4, 50, 52)";
         cart.style.borderRadius="5px";
         cart.style.columnGap="10px";
         cart.style.padding="10px";
         mineproduct.append(cart);
-        
-        // localStorage.setItem("product",JSON.stringify(element));
-    
-      
-    })
+            })
    
 }
