@@ -19,8 +19,31 @@ fetchdata();
 function productpage(data){
     data.map((element)=>{
         const product=document.createElement('div');
+        const desc=document.createElement("div");
         const image=document.createElement('img');
-       console.log(element);
+        image.style.width="200px";
+        const color=document.createElement("p");
+        const gender=document.createElement("p");
+        const name=document.createElement("p");
+        const price=document.createElement("p");
+        image.src=element.imageURL;
+        color.innerText=element.color;
+        gender.innerText=element.gender;
+        name.innerText=element.name;
+        price.innerText=element.price;
+        desc.append(color,gender,name,price);
+        product.append(image);
+        const cart=document.createElement("div");
+         const mineproduct= document.getElementById("productcart");
+         cart.append(image,desc);
+         cart.style.border="2px solid rgb(4, 50, 52)";
+         cart.style.borderRadius="5px";
+         cart.style
+         mineproduct.append(cart);
+        
+        // localStorage.setItem("product",JSON.stringify(element));
+    
+      
     })
    
 }

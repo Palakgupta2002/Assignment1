@@ -35,7 +35,7 @@ nav{
     background-repeat: no-repeat;
     background-size: cover;
     animation: moveImage 5s alternate-reverse infinite;
-    border:  2px solid red;
+    
   }
   
   @keyframes moveImage {
@@ -82,7 +82,7 @@ body{
   width: 100%;
   position: relative;
   display: flex;
-  border: 2px solid red;
+ 
 }
 
 .searchTerm {
@@ -126,6 +126,12 @@ body{
 }
 .filter{
   margin-left: 130vh;
+}
+.product{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 20px;
+  width: 600px;
 }
 
 
