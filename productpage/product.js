@@ -63,3 +63,15 @@ function productpage(data){
             })
    
 }
+var rangeInput = document.getElementById('customRange1');
+var leftLabel = document.getElementById('leftLabel');
+var rightLabel = document.getElementById('rightLabel');
+
+rangeInput.addEventListener('input', function() {
+  var value = this.value;
+
+  // Update the left and right labels based on the slider value
+  
+  rightLabel.textContent = 'Rs ' +  value;
+});
+

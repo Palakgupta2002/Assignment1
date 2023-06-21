@@ -16,7 +16,7 @@ nav{
 
 }
 .gif {
-    position: relative;
+    /* position: relative; */
     height: 100vh;
     overflow: hidden;
     width: 100vh;
@@ -28,7 +28,7 @@ nav{
     position: absolute;
     top: 0;
     left: 0;
-    width: 20%;
+    width: 10%;
     height: 20%;
     margin-top: -10px;
     z-index: 999;
@@ -122,10 +122,13 @@ body{
 }
 .functionality{
   margin-top: 180px;
-  margin-left: 100px;
+  margin-left: 90px;
+  display: flex;
+  
 }
 .filter{
-  margin-left: 130vh;
+  margin-left: 40vh;
+
 }
 .product{
   display: grid;
@@ -141,6 +144,25 @@ body{
   transition: transform cubic-bezier(0.25, 0.46, 0.45, 0.94) ease-in-out;
   transform: scale(1.2);
 
+}
+.producthead{
+  color:rgb(4, 50, 52);
+  font-size: 50px;
+  font-weight: bold;
+bottom: 40px;
+  margin-left: 250px;
+text-decoration: underline;
+}
+.divfilter{
+
+  width:330px;
+  height: fit-content;
+  border: 2px solid rgb(4, 50, 52);
+  margin-top: 90px;
+  padding: 40px;
+  border-radius: 30px;
+  background-color:rgb(12, 74, 77) ;
+  color: white;
 }
 
 

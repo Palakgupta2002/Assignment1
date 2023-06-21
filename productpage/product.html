@@ -44,28 +44,45 @@
      
     </div>
     <div class="functionality">
-        
-            <div class="filter">
-                <div class="form-check">
-                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-                    <label class="form-check-label" for="flexRadioDefault1">
-                      Default radio
-                    </label>
-                  </div>
-                  <div class="form-check">
-                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
-                    <label class="form-check-label" for="flexRadioDefault2">
-                      Default checked radio
-                    </label>
-                  </div>
-                  
+        <div>
+    <div style="margin-bottom:80px;"><span class="producthead">My Product</span></div> 
+        <div id="productcart" class="product">
+        </div>
+    </div>
+    <div>
+      <div id="filter" class="filter">
+        <div style="font-size:30px;font-weight:bold;margin-top:10px;text-decoration: underline;">FITER VIA YOUR NEED</div>
+        <div style="padding-left: 20px;" class="divfilter">
+            <div >
+                <span>Color</span>
+                <div>
+                    <input id="searchcolor" type="text" placeholder="Search via color";>
+                </div>
+                
 
             </div>
-            <p>My Product</p>
-        <div id="productcart" class="product">
-         
-            
+            <div >
+                <span style="margin-top:40px;">Gender</span>
+                <div style="display:flex;"><input type="radio" name='click'><p>men</p></div>
+                <div style="display:flex;"><input type="radio" name='click'><p>women</p></div>
+                <div style="display:flex;"><input type="radio" name='click'><p>All</p></div>
+
+
+            </div>
+            <div>
+                
+                <label for="customRange1" class="form-label">Price :-</label>
+                <label id="leftLabel" for="customRange1" class="form-label">Rs 0</label>
+                <input type="range" class="form-range" id="customRange1" min="0" max="10000">
+                <label  id="rightLabel" for="customRange1" class="form-label">Rs 10000</label>
+                
+
+            </div>
+
+        </div>
     </div>
+        
+      </div>
     </div>
       
      
