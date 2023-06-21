@@ -61,6 +61,9 @@ function productpage(data){
         cart.style.padding="10px";
         mineproduct.append(cart);
             })
+//This is for to show data 
+
+
    
 }
 var rangeInput = document.getElementById('customRange1');
@@ -73,5 +76,14 @@ rangeInput.addEventListener('input', function() {
   // Update the left and right labels based on the slider value
   
   rightLabel.textContent = 'Rs ' +  value;
+  if(this.value==0){
+   rightLabel.textContent="Rs "+500;
+  }
+});
+const searchInput = document.getElementById('searchcolor');
+
+searchInput.addEventListener('input', () => {
+  const searchValue = searchInput.value;
+  console.log(searchValue);
 });
 
