@@ -62,8 +62,12 @@ function productpage(data){
         mineproduct.append(cart);
             })
 //This is for to show data 
-document.getElementById('searchcolor').addEventListener('input', function() {
-  console.log(this.value);
+
+document.getElementById('submit').addEventListener('submit', function() {
+ const result=document.getElementById('searchcolor');
+ 
+ console.log(result.Value);
+ document.getElementById('head').innertext=result.value;
 });
 
 
