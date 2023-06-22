@@ -107,6 +107,11 @@ function filterproduct(data) {
        
           return true; 
         }
+       
+        
+        if (result.length === 0) {
+
+        }   
         productpage(data);
        
   
@@ -177,6 +182,7 @@ rangeInput.addEventListener('input', function() {
   
    clearProductCart();
    productpage(data); 
+//
  
 }
 function clearProductCart() {
@@ -186,5 +192,6 @@ function clearProductCart() {
 document.getElementById("reset").addEventListener("click",function reset(){
   productpage(data);
 })
+
 
 
