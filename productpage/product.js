@@ -1,3 +1,4 @@
+let data;
 async function fetchdata(){
     try {
         const response= await fetch('https://geektrust.s3.ap-southeast-1.amazonaws.com/coding-problems/shopping-cart/catalogue.json');
@@ -5,8 +6,10 @@ async function fetchdata(){
          throw new Error("Network response is not responding");
        }
        else{
-       const  data= await response.json();
-      productpage(data);
+        data= await response.json();
+      // productpage(data);
+      filterproduct(data);
+      
     }
 
 
@@ -82,8 +85,51 @@ const searchInput = document.getElementById('searchcolor');
 
 searchInput.addEventListener('input', () => {
   const searchValue = searchInput.value;
-  console.log(searchValue);
+  // console.log(searchValue);
 });
 
-//
+
+  
+
+
+// });
+
+function filterproduct(data) {
+  if(true){
+    
+  document.getElementById('submit').addEventListener('click', function() {
+
+    const result = document.getElementById('searchcolor').value;
+  
+      const filteredData = data.filter((ele) => {
+        
+        if (ele.color === result) {
+       
+          return true; 
+        }
+        productpage(data);
+       
+  
+       
+      });
+      clearProductCart();
+      productpage(filteredData);
+     
+     
+      
+      
+    });
+  }
+  productpage(data);
+  
+ 
+}
+function clearProductCart() {
+  const mineproduct = document.getElementById("productcart");
+  mineproduct.innerHTML = "";
+}
+document.getElementById("reset").addEventListener("click",function reset(){
+  productpage(data);
+})
+
 
