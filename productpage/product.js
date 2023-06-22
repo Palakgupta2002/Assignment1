@@ -95,30 +95,43 @@ searchInput.addEventListener('input', () => {
 // });
 
 function filterproduct(data) {
+ 
 
-    
+    const array=data;
   document.getElementById('submit').addEventListener('click', function() {
+    
 
     const result = document.getElementById('searchcolor').value;
   
-      const filteredData = data.filter((ele) => {
+      const filteredData = array.filter((ele) => {
+        
         
         if (ele.color === result) {
+        
+          console.log(ele);
        
           return true; 
         }
+        else{
+          filteredData=data;
+          clearProductCart();
+          productpage(data);
+        }
        
         
-        if (result.length === 0) {
-
-        }   
+         
         productpage(data);
        
   
        
       });
+      if(result.length==0){
+        console.log(data);
+      }
+      else{
       clearProductCart();
       productpage(filteredData);
+      }
      
      
       
@@ -128,10 +141,13 @@ function filterproduct(data) {
    document.getElementById("menclick").addEventListener("click",()=>{
     let filtermen=document.getElementById("menclick").checked;
     if(filtermen){
-     let filteredData= data.filter((ele)=>{
+     let filteredData= array.filter((ele)=>{
+      
       if(ele.gender==="Men"){
+       
         return ele;
       }
+     
      })
      clearProductCart();
      productpage(filteredData);
@@ -144,10 +160,12 @@ function filterproduct(data) {
    document.getElementById("womenclick").addEventListener("click",()=>{
     let filtermen=document.getElementById("womenclick").checked;
     if(filtermen){
-     let filteredData= data.filter((ele)=>{
+     let filteredData= array.filter((ele)=>{
       if(ele.gender==="Women"){
+       
         return ele;
       }
+     
      })
      //This is for all 
      document.getElementById("all").addEventListener("click",()=>{
@@ -168,11 +186,12 @@ function filterproduct(data) {
    var rangeInput = document.getElementById('customRange1');
 
 rangeInput.addEventListener('input', function() {
-  const filteredData = data.filter((ele) => {
+  const filteredData = array.filter((ele) => {
     if (ele.price <= rangeInput.value) {
+    
       return true;
     }
-    return false;
+   
   });
 
   clearProductCart(); // Clear existing content
