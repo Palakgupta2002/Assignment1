@@ -95,7 +95,7 @@ searchInput.addEventListener('input', () => {
 // });
 
 function filterproduct(data) {
-  if(true){
+
     
   document.getElementById('submit').addEventListener('click', function() {
 
@@ -119,9 +119,64 @@ function filterproduct(data) {
       
       
     });
-  }
-  productpage(data);
+    //This is for men
+   document.getElementById("menclick").addEventListener("click",()=>{
+    let filtermen=document.getElementById("menclick").checked;
+    if(filtermen){
+     let filteredData= data.filter((ele)=>{
+      if(ele.gender==="Men"){
+        return ele;
+      }
+     })
+     clearProductCart();
+     productpage(filteredData);
+    //  console.log(filteredData);
+
+    }
+    
+   })
+   //This is for women
+   document.getElementById("womenclick").addEventListener("click",()=>{
+    let filtermen=document.getElementById("womenclick").checked;
+    if(filtermen){
+     let filteredData= data.filter((ele)=>{
+      if(ele.gender==="Women"){
+        return ele;
+      }
+     })
+     //This is for all 
+     document.getElementById("all").addEventListener("click",()=>{
+      document.getElementById("all").checked;
+    
+       clearProductCart();
+       productpage(data); 
+     })
+     
+
+     clearProductCart();
+     productpage(filteredData);
+    //  console.log(filteredData);
+
+    }
+    
+   })
+   var rangeInput = document.getElementById('customRange1');
+
+rangeInput.addEventListener('input', function() {
+  const filteredData = data.filter((ele) => {
+    if (ele.price <= rangeInput.value) {
+      return true;
+    }
+    return false;
+  });
+
+  clearProductCart(); // Clear existing content
+  productpage(filteredData);
+});
+
   
+   clearProductCart();
+   productpage(data); 
  
 }
 function clearProductCart() {
