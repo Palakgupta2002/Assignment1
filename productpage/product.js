@@ -61,15 +61,6 @@ function productpage(data){
         cart.style.padding="10px";
         mineproduct.append(cart);
             })
-//This is for to show data 
-
-document.getElementById('submit').addEventListener('submit', function() {
- const result=document.getElementById('searchcolor');
- 
- console.log(result.Value);
- document.getElementById('head').innertext=result.value;
-});
-
 
    
 }
@@ -93,4 +84,6 @@ searchInput.addEventListener('input', () => {
   const searchValue = searchInput.value;
   console.log(searchValue);
 });
+
+//
 
