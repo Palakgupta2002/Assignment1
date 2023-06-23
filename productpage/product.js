@@ -81,108 +81,66 @@ rangeInput.addEventListener('input', function() {
    rightLabel.textContent="Rs "+500;
   }
 });
-const searchInput = document.getElementById('searchcolor');
+// const searchInput = document.getElementById('searchcolor');
 
-searchInput.addEventListener('input', () => {
-  const searchValue = searchInput.value;
-  // console.log(searchValue);
-});
+// searchInput.addEventListener('input', () => {
+//   const searchValue = searchInput.value;
+//   // console.log(searchValue);
+// });
 
+function filterproduct(data) {
+ 
 
   
-
-
-// });
-const array=[];
-const array1=[];
-function filterproduct(data) {
-  const count=0;
   document.getElementById('submit').addEventListener('click', function() {
     
-     count++;
-     if(count==1){
-      array=data;
-     }
-     else{
-     array=array1;
-     }
     const result = document.getElementById('searchcolor').value;
   
-      const filteredData = array.filter((ele) => {
+      const filteredData =data.filter((ele) => {
         
         
         if (ele.color === result) {
-        array1=ele;
-          console.log(ele);
-       
-          return true; 
-        }
-        else{
-          filteredData=data;
-          clearProductCart();
-          productpage(data);
-        }
-       
+     
         
-         
-        productpage(data);
-       
-  
-       
+          return true; 
+        }   
+        productpage(data); 
       });
       if(result.length==0){
         console.log(data);
+        filteredData = data;
       }
-      else{
       clearProductCart();
-      productpage(filteredData);
-      }
-     
-     
-      
-      
+      productpage(filteredData);  
     });
     //This is for men
    document.getElementById("menclick").addEventListener("click",()=>{
-    count++;
-    if(count==1){
-      array=data;
-    }
-    else{
-      array=array1;
-    }
+   
     let filtermen=document.getElementById("menclick").checked;
     if(filtermen){
-     let filteredData= array.filter((ele)=>{
+     let filteredData=data.filter((ele)=>{
       
       if(ele.gender==="Men"){
-       array1=ele;
+      
         return ele;
       }
      
      })
      clearProductCart();
      productpage(filteredData);
-    //  console.log(filteredData);
+    console.log(filteredData);
 
     }
     
    })
    //This is for women
    document.getElementById("womenclick").addEventListener("click",()=>{
-    count++;
-    if(count==1){
-      array=data;
-    }
-    else{
-      array=array1;
-    }
-
+    
     let filtermen=document.getElementById("womenclick").checked;
     if(filtermen){
-     let filteredData= array.filter((ele)=>{
+     let filteredData= data.filter((ele)=>{
       if(ele.gender==="Women"){
-       array1=ele;
+      
         return ele;
       }
      
