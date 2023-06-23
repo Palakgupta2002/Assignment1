@@ -93,21 +93,26 @@ searchInput.addEventListener('input', () => {
 
 
 // });
-
+const array=[];
+const array1=[];
 function filterproduct(data) {
- 
-
-    const array=data;
+  const count=0;
   document.getElementById('submit').addEventListener('click', function() {
     
-
+     count++;
+     if(count==1){
+      array=data;
+     }
+     else{
+     array=array1;
+     }
     const result = document.getElementById('searchcolor').value;
   
       const filteredData = array.filter((ele) => {
         
         
         if (ele.color === result) {
-        
+        array1=ele;
           console.log(ele);
        
           return true; 
@@ -139,12 +144,19 @@ function filterproduct(data) {
     });
     //This is for men
    document.getElementById("menclick").addEventListener("click",()=>{
+    count++;
+    if(count==1){
+      array=data;
+    }
+    else{
+      array=array1;
+    }
     let filtermen=document.getElementById("menclick").checked;
     if(filtermen){
      let filteredData= array.filter((ele)=>{
       
       if(ele.gender==="Men"){
-       
+       array1=ele;
         return ele;
       }
      
@@ -158,11 +170,19 @@ function filterproduct(data) {
    })
    //This is for women
    document.getElementById("womenclick").addEventListener("click",()=>{
+    count++;
+    if(count==1){
+      array=data;
+    }
+    else{
+      array=array1;
+    }
+
     let filtermen=document.getElementById("womenclick").checked;
     if(filtermen){
      let filteredData= array.filter((ele)=>{
       if(ele.gender==="Women"){
-       
+       array1=ele;
         return ele;
       }
      
@@ -186,7 +206,7 @@ function filterproduct(data) {
    var rangeInput = document.getElementById('customRange1');
 
 rangeInput.addEventListener('input', function() {
-  const filteredData = array.filter((ele) => {
+  const filteredData = data.filter((ele) => {
     if (ele.price <= rangeInput.value) {
     
       return true;
