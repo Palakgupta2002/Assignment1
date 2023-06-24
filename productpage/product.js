@@ -87,14 +87,11 @@ searchInput.addEventListener('input', () => {
   const searchValue = searchInput.value;
   // console.log(searchValue);
 });
-
-
-  
-
-var one =false;
-var two=false; 
-var three=false;
-
+const result = document.getElementById('searchcolor').value;
+var rangeInput = document.getElementById('customRange1');
+let filterwomen=document.getElementById("womenclick");
+let filtermen=document.getElementById("menclick");
+var search=false;
 function filterproduct(data) {
  
   
@@ -106,12 +103,16 @@ function filterproduct(data) {
       const filteredData = data.filter((ele) => {
         
         
-        if (ele.color === result) {
+        if (ele.color === result ) {
      
-        
+        search=true;
           return true; 
         }  
-        productpage(data); 
+        else{
+          search=false;
+          productpage(data); 
+        }
+
       });
       if(result.length==0){
         filteredData=data;
@@ -120,36 +121,46 @@ function filterproduct(data) {
       
       clearProductCart();
       productpage(filteredData);  
-    console.log(result);
+  
     });
     //This is for men
    document.getElementById("menclick").addEventListener("click",()=>{
+    const searchInput = document.getElementById('searchcolor').value; //color
+    var rangeInput = document.getElementById('customRange1'); //renge
+    let filteredData;
 
-   console.log(one,two);
+
     let filtermen=document.getElementById("menclick").checked;
-    if(filtermen){
-     let filteredData=data.filter((ele)=>{
+    if(filtermen==true && search==false ){
+      filteredData=data.filter((ele)=>{
       
       if(ele.gender==="Men"){
-      
+        console.log("hello");
         return ele;
       }
      
      })
+    }
+    
+     if(filtermen==true && search==true  ){
+    searchInput.addEventListener('input', () => {
+       filteredData = data.filter((ele)=>{
+        if(ele.gender==="Men" && ele.color===result && ele.gender!="Women"){
+          console.log("hii");
+          return ele;
+          
+        }
+      })
+  
+
+     });
+      }
+
      clearProductCart();
      productpage(filteredData);
-    //  console.log(filteredData);
+    
     
 
-    }
-    const searchInput = document.getElementById('searchcolor');
-if(searchInput==true){
-searchInput.addEventListener('input', () => {
-  const searchValue = searchInput.value;
-   console.log(searchValue);
-
-});
-}
     
    })
    //This is for women
@@ -182,12 +193,12 @@ searchInput.addEventListener('input', () => {
    })
    var rangeInput = document.getElementById('customRange1');
 
-rangeInput.addEventListener('input', function() {
-  const filteredData = data.filter((ele) => {
-    if (ele.price <= rangeInput.value) {
+    rangeInput.addEventListener('input', function() {
+     const filteredData = data.filter((ele) => {
+      if (ele.price <= rangeInput.value) {
     
-      return true;
-    }
+        return true;
+       }
    
   });
 
@@ -201,6 +212,11 @@ rangeInput.addEventListener('input', function() {
 //
  
 }
+
+
+  
+
+
 function clearProductCart() {
   const mineproduct = document.getElementById("productcart");
   mineproduct.innerHTML = "";
