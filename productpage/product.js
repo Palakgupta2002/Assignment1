@@ -81,41 +81,51 @@ rangeInput.addEventListener('input', function() {
    rightLabel.textContent="Rs "+500;
   }
 });
-// const searchInput = document.getElementById('searchcolor');
+const searchInput = document.getElementById('searchcolor');
 
-// searchInput.addEventListener('input', () => {
-//   const searchValue = searchInput.value;
-//   // console.log(searchValue);
-// });
+searchInput.addEventListener('input', () => {
+  const searchValue = searchInput.value;
+  // console.log(searchValue);
+});
+
+
+  
+
+var one =false;
+var two=false; 
+var three=false;
 
 function filterproduct(data) {
  
-
   
   document.getElementById('submit').addEventListener('click', function() {
+
     
     const result = document.getElementById('searchcolor').value;
   
-      const filteredData =data.filter((ele) => {
+      const filteredData = data.filter((ele) => {
         
         
         if (ele.color === result) {
      
         
           return true; 
-        }   
+        }  
         productpage(data); 
       });
       if(result.length==0){
-        console.log(data);
-        filteredData = data;
+        filteredData=data;
+        clearProductCart();
       }
+      
       clearProductCart();
       productpage(filteredData);  
+    console.log(result);
     });
     //This is for men
    document.getElementById("menclick").addEventListener("click",()=>{
-   
+
+   console.log(one,two);
     let filtermen=document.getElementById("menclick").checked;
     if(filtermen){
      let filteredData=data.filter((ele)=>{
@@ -128,14 +138,24 @@ function filterproduct(data) {
      })
      clearProductCart();
      productpage(filteredData);
-    console.log(filteredData);
+    //  console.log(filteredData);
+    
 
     }
+    const searchInput = document.getElementById('searchcolor');
+if(searchInput==true){
+searchInput.addEventListener('input', () => {
+  const searchValue = searchInput.value;
+   console.log(searchValue);
+
+});
+}
     
    })
    //This is for women
    document.getElementById("womenclick").addEventListener("click",()=>{
     
+
     let filtermen=document.getElementById("womenclick").checked;
     if(filtermen){
      let filteredData= data.filter((ele)=>{
@@ -156,8 +176,7 @@ function filterproduct(data) {
 
      clearProductCart();
      productpage(filteredData);
-    //  console.log(filteredData);
-
+   
     }
     
    })
@@ -187,8 +206,6 @@ function clearProductCart() {
   mineproduct.innerHTML = "";
 }
 document.getElementById("reset").addEventListener("click",function reset(){
+  clearProductCart();
   productpage(data);
 })
-
-
-
