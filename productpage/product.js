@@ -87,11 +87,6 @@ searchInput.addEventListener('input', () => {
   const searchValue = searchInput.value;
   // console.log(searchValue);
 });
-const result = document.getElementById('searchcolor').value;
-var rangeInput = document.getElementById('customRange1');
-let filterwomen=document.getElementById("womenclick");
-let filtermen=document.getElementById("menclick");
-var search=false;
 function filterproduct(data) {
  
   
@@ -103,16 +98,12 @@ function filterproduct(data) {
       const filteredData = data.filter((ele) => {
         
         
-        if (ele.color === result ) {
+        if (ele.color === result) {
      
-        search=true;
+        
           return true; 
         }  
-        else{
-          search=false;
-          productpage(data); 
-        }
-
+        productpage(data); 
       });
       if(result.length==0){
         filteredData=data;
@@ -121,45 +112,29 @@ function filterproduct(data) {
       
       clearProductCart();
       productpage(filteredData);  
-  
+    console.log(result);
     });
     //This is for men
    document.getElementById("menclick").addEventListener("click",()=>{
-    const searchInput = document.getElementById('searchcolor').value; //color
-    var rangeInput = document.getElementById('customRange1'); //renge
-    let filteredData;
+   
 
-
+  
     let filtermen=document.getElementById("menclick").checked;
-    if(filtermen==true && search==false ){
-      filteredData=data.filter((ele)=>{
+    if(filtermen){
+     let filteredData=data.filter((ele)=>{
       
       if(ele.gender==="Men"){
-        console.log("hello");
+      
+      
         return ele;
       }
      
      })
-    }
     
-     if(filtermen==true && search==true  ){
-    searchInput.addEventListener('input', () => {
-       filteredData = data.filter((ele)=>{
-        if(ele.gender==="Men" && ele.color===result && ele.gender!="Women"){
-          console.log("hii");
-          return ele;
-          
-        }
-      })
-  
-
-     });
-      }
 
      clearProductCart();
      productpage(filteredData);
-    
-    
+    }
 
     
    })
@@ -212,10 +187,6 @@ function filterproduct(data) {
 //
  
 }
-
-
-  
-
 
 function clearProductCart() {
   const mineproduct = document.getElementById("productcart");
