@@ -176,6 +176,15 @@ text-decoration: underline;
   border: none;
   cursor: pointer;
 }
+.shoppingicon{
+  cursor: pointer;
+  color: #fffbfb;
+  margin-right: 20px;
+  height: 200px;
+  margin-left:700px;
+  display: flex;
+  column-gap: 12px;
+}
 
 
 
