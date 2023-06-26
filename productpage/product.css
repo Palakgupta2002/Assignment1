@@ -163,7 +163,18 @@ text-decoration: underline;
   border-radius: 30px;
   background-color:rgb(12, 74, 77) ;
   color: white;
+  line-height: 30px;
+
   
+}
+.reset{
+  border-radius:30px;
+  padding: 6px;
+  margin-left: 300px;
+  color:rgb(12, 74, 77);
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
 }
 
 
