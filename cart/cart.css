@@ -1,0 +1,10 @@
+.cart{
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    grid-gap: 40px;
+    grid-row: 10px;
+    width: fit-content;
+    font-family: cursive;
+    padding: 30px;
+    
+}
