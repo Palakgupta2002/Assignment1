@@ -81,11 +81,12 @@ rangeInput.addEventListener('input', function() {
    rightLabel.textContent="Rs "+500;
   }
 });
-const searchInput = document.getElementById('searchcolor');
+const searchInput = document.getElementById('searchinput');
+const search=document.getElementById("search");
 
-searchInput.addEventListener('input', () => {
+search.addEventListener('click', () => {
   const searchValue = searchInput.value;
-  // console.log(searchValue);
+  console.log(searchValue);
 });
 function filterproduct(data) {
  
@@ -112,7 +113,7 @@ function filterproduct(data) {
       
       clearProductCart();
       productpage(filteredData);  
-    console.log(result);
+      console.log(result);
     });
     //This is for men
    document.getElementById("menclick").addEventListener("click",()=>{
@@ -179,6 +180,19 @@ function filterproduct(data) {
 
   clearProductCart(); // Clear existing content
   productpage(filteredData);
+});
+//This is for Searching 
+const searchInput = document.getElementById('searchinput');
+const search=document.getElementById("search");
+search.addEventListener('click', () => {
+const searchValue = searchInput.value;
+const filterdata=data.filter((ele)=>{
+  if(ele.gender==searchValue || ele.color==searchValue || ele.price==searchValue || ele.name==searchValue){
+    return ele;
+  }
+})
+clearProductCart(); 
+productpage(filterdata);
 });
 
   
