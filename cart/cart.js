@@ -28,6 +28,7 @@ function cartpage(){
                 price1=element.price*quantity;
                 quantityp.innerHTML = quantity;
                  price.innerText="Price: "+price1;
+                 sum+=price1;
 
               } else {
                 alert("You have reached the maximum available quantity.");
@@ -37,7 +38,7 @@ function cartpage(){
             alert("Currently we do not have enough quantity");
           }
        
-       
+          sum+=element.price;
         detailsp.innerText="Product Details"
         details1.append(detailsp,quantityp,quantitybtn);
         details1.setAttribute("id","details1");
@@ -49,7 +50,6 @@ function cartpage(){
         color.innerText="Color: "+element.color;
         gender.innerText="Gender: "+element.gender;
         name.innerText="Name: "+element.name;
-        sum+=price1;
         desc.append(color,gender,name,price);
         desc.style.color="rgb(4, 50, 52)";
         desc.style.fontWeight="bold";
