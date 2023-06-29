@@ -11,15 +11,18 @@ function cartpage(){
         const details=document.createElement("div");
         const details1=document.createElement("div");
         const detailsp=document.createElement("p");
-        var quantity=1;
+        let quantity=1;
         const quantityp=document.createElement("p");
         const quantitybtn=document.createElement("button");
         quantitybtn.innerText="Click";
         if(element.quantity>=quantity){
+            console.log(quantity,"2");
         quantitybtn.addEventListener("click",()=>{
-        
-                quantity++;
-            console.log(quantity);
+           quantity++;
+           quantity;
+            console.log(quantity,"3");
+            quantityp.innerHTML=quantity;
+            
             
            
         })}
@@ -27,7 +30,7 @@ function cartpage(){
             alert("Currently we have not more");
 
         }
-        quantityp.innerHTML=quantity;
+       
        
         detailsp.innerText="Product Details"
         details1.append(detailsp,quantityp,quantitybtn);
