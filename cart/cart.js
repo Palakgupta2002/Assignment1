@@ -1,6 +1,7 @@
 let arr=JSON.parse(localStorage.getItem("cart"));
 console.log(arr);
 
+
 function cartpage(){
     var sum=0;
     arr&&arr.map((element)=>{
@@ -8,28 +9,33 @@ function cartpage(){
         const product=document.createElement('div');
         const desc=document.createElement("div");
         const image=document.createElement('img');
+        const price=document.createElement("p");
         const details=document.createElement("div");
         const details1=document.createElement("div");
         const detailsp=document.createElement("p");
-        let quantity=1;
-        const quantityp=document.createElement("p");
-        const quantitybtn=document.createElement("button");
-        quantitybtn.innerText="Click";
-        if(element.quantity>=quantity){
-            console.log(quantity,"2");
-        quantitybtn.addEventListener("click",()=>{
-           quantity++;
-           quantity;
-            console.log(quantity,"3");
-            quantityp.innerHTML=quantity;
-            
-            
-           
-        })}
-        else{
-            alert("Currently we have not more");
+        let quantity = 1;
+        let price1=element.price;
+        price.innerText="Price: "+price1;
 
-        }
+        const quantityp = document.createElement("p");
+        quantityp.innerHTML = quantity;
+        const quantitybtn = document.createElement("button");
+        quantitybtn.innerText = "Click";
+        if (element.quantity >= quantity) {
+            quantitybtn.addEventListener("click", () => {
+              if (quantity < element.quantity) {
+                quantity++;
+                price1=element.price*quantity;
+                quantityp.innerHTML = quantity;
+                 price.innerText="Price: "+price1;
+
+              } else {
+                alert("You have reached the maximum available quantity.");
+              }
+            });
+          } else {
+            alert("Currently we do not have enough quantity");
+          }
        
        
         detailsp.innerText="Product Details"
@@ -39,13 +45,11 @@ function cartpage(){
         const color=document.createElement("p");
         const gender=document.createElement("p");
         const name=document.createElement("p");
-        const price=document.createElement("p");
         image.src=element.imageURL;
         color.innerText="Color: "+element.color;
         gender.innerText="Gender: "+element.gender;
         name.innerText="Name: "+element.name;
-        price.innerText="Price: "+element.price;
-        sum+=element.price;
+        sum+=price1;
         desc.append(color,gender,name,price);
         desc.style.color="rgb(4, 50, 52)";
         desc.style.fontWeight="bold";
